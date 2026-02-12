@@ -1,0 +1,20 @@
+# Exclude build output (created in container)
+output/
+tomcat-build-libs/
+
+# Exclude git files (not needed for build)
+.git/
+.github/
+
+# Exclude IDE files
+.idea/
+.vscode/
+*.iml
+
+# Exclude Docker files (avoid recursion)
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Exclude local build configuration (created in container)
+build.properties
