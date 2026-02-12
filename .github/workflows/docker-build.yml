@@ -38,6 +38,11 @@ jobs:
     - name: Build Docker Image
       run: make docker-rebuild
 
+    - name: Initialize Volume Permissions
+      run: |
+        docker compose run --rm --user root tomcat-build \
+          chown -R 1000:1000 /workspace/tomcat-build-libs
+
     - name: Build Tomcat
       run: make build
 
