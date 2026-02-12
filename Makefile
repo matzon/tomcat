@@ -20,9 +20,9 @@
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
-# Ensure UID and GID are set for docker-compose
-export UID := $(shell id -u)
-export GID := $(shell id -g)
+# Note: docker-compose.yml defaults to UID=1000 GID=1000 (typical first user)
+# If your host user has a different UID, export UID and GID before running make:
+#   export UID=$(id -u) GID=$(id -g) && make build
 
 # Colors for output
 GREEN  := \033[0;32m

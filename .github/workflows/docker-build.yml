@@ -43,10 +43,10 @@ jobs:
         docker compose run --rm --user root tomcat-build sh -c "mkdir -p /workspace/tomcat-build-libs && chown -R 1000:1000 /workspace/tomcat-build-libs && ls -la /workspace/tomcat-build-libs"
 
     - name: Build Tomcat
-      run: UID=1000 GID=1000 make build
+      run: make build
 
     - name: Run Tests
-      run: UID=1000 GID=1000 make test
+      run: make test
 
     - name: Upload Build Artifacts
       if: ${{ !cancelled() }}
